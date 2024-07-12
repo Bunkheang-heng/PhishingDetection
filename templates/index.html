@@ -7,23 +7,31 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Fetch Emails</h1>
-        <form action="/fetch-emails" method="post">
-            <div class="form-group">
-                <label for="username">Email Address</label>
-                <input type="email" class="form-control" id="username" name="username" required>
+    <div class="d-flex align-items-center justify-content-center min-vh-100 overflow-hidden">
+        <div class="container h-75 m-0 bg-light p-3 border border-1 border-opacity-50 rounded" style="width: 40%;">
+            <h1 class="text-center">Email Phishing Detector</h1>
+            <div class="d-flex-column align-items-center justify-content-center p-3">
+                <form action="/fetch-emails" method="post">
+                    <div class="">
+                        <div class="d-flex form-group align-items-center m-10">
+                            <label for="username" class="w-50">Email Address</label>
+                            <input type="email" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="d-flex form-group align-items-center m-10">
+                            <label for="app_password" class="w-50">App Password</label>
+                            <input type="password" class="form-control" id="app_password" name="app_password" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="imap_server">IMAP Server</label>
+                        <input type="text" class="form-control" id="imap_server" name="imap_server" required>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary">Fetch Emails</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="app_password">App Password</label>
-                <input type="password" class="form-control" id="app_password" name="app_password" required>
-            </div>
-            <div class="form-group">
-                <label for="imap_server">IMAP Server</label>
-                <input type="text" class="form-control" id="imap_server" name="imap_server" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Fetch Emails</button>
-        </form>
+        </div>
     </div>
 </body>
 </html>
