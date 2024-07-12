@@ -3,35 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Fetcher</title>
+    <title>Email Phishing Detector</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="d-flex align-items-center justify-content-center min-vh-100 overflow-hidden">
-        <div class="container h-75 m-0 bg-light p-3 border border-1 border-opacity-50 rounded" style="width: 40%;">
-            <h1 class="text-center">Email Phishing Detector</h1>
-            <div class="d-flex-column align-items-center justify-content-center p-3">
-                <form action="/fetch-emails" method="post">
-                    <div class="">
-                        <div class="d-flex form-group align-items-center m-10">
-                            <label for="username" class="w-50">Email Address</label>
-                            <input type="email" class="form-control" id="username" name="username" required>
-                        </div>
-                        <div class="d-flex form-group align-items-center m-10">
-                            <label for="app_password" class="w-50">App Password</label>
-                            <input type="password" class="form-control" id="app_password" name="app_password" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="imap_server">IMAP Server</label>
-                        <input type="text" class="form-control" id="imap_server" name="imap_server" required>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Fetch Emails</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="vw-100 vh-100 d-flex justify-content-center align-items-center">
+        <a href="./fetch_email.html" class="btn btn-success w-25 h-25 d-flex justify-content-center align-items-center">fetch email</a>
     </div>
 </body>
 </html>
