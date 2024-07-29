@@ -19,12 +19,12 @@
             {% for email in emails %}
             <li class="list-group-item w-100">
                 <p class="fs-6 p-0 text-secondary" style="height: 10px; margin-bottom: 16px; font-style: italic;">Status: Not Scanned, Safe, Spam, Phishing</p>
-                <div class="d-flex w-100 border border-secondary-emphasis overflow-hidden">
-                    <div class="bg-secondary rounded-start-2" style="width: 20px;">
-                        <!-- warning color: green=normal, yellow=spam, red=phishing -->
-                    </div>
-                    <div class="w-100 list-group-item-action" role="button">
-                        <a href="{{ url_for('email_detail', email_id=email.id, username=username, app_password=app_password, imap_server=imap_server) }}" role="button">
+                <a href="{{ url_for('email_detail', email_id=email.id, username=username, app_password=app_password, imap_server=imap_server) }}" role="button">
+                    <div class="d-flex w-100 border border-secondary-emphasis overflow-hidden">
+                        <p class="bg-secondary rounded-start-2" style="width: 20px; height: 100%;">
+                            <!-- warning color: green=normal, yellow=spam, red=phishing -->
+                        </p>
+                        <div class="w-100 list-group-item-action">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <h5 class="card-title">{{ email.subject }}</h5>
@@ -36,9 +36,9 @@
                             <div class="card-footer text-end email-date">
                                 <small>{{ email.date }}</small>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                </div>
+                </a>
                 
             </li>
             {% endfor %}

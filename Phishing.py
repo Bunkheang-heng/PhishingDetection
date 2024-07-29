@@ -177,7 +177,7 @@ def fetch_email_by_id(username, app_password, imap_server, email_id, mailbox='IN
 def index():
     return render_template('index.html')
 
-@app.route('/fetch-emails', methods=['POST'])
+@app.route('/fetch-emails', methods=['GET','POST'])
 def fetch_emails_route():
     username = request.form.get('username')
     app_password = request.form.get('app_password')
@@ -201,6 +201,10 @@ def email_detail(email_id):
 
     email_content = fetch_email_by_id(username, app_password, imap_server, email_id)
     return render_template('email_detail.html', email=email_content)
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 if __name__ == '__main__':
     app.run(host='localhost', port=5002, debug=True)
