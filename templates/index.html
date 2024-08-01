@@ -6,9 +6,33 @@
     <title>Email Phishing Detector</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+<style>
+    body {
+        background-color: #eee;
+    }
+</style>
 <body>
-    <div class="vw-100 vh-100 d-flex justify-content-center align-items-center">
-        <a href="./login" class="btn btn-success w-25 h-25 d-flex justify-content-center align-items-center">fetch email</a>
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Email Phishing Detector</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Documentation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="vh-100 d-flex flex-column align-items-center">
+        <!-- body -->
+         <div class="p-5 d-flex flex-column justify-content-center" style="height: 450px;">
+             <h2 class="mb-4">
+                Shield your inbox from phishing threats. Start scanning now!
+             </h2>
+            <a href="./login" class="btn btn-success p-3 mb-5 d-flex justify-content-center align-items-center">Fetch Email</a>
+         </div>
     </div>
 </body>
 </html>
