@@ -7,6 +7,10 @@
     <title>Email Detail</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            background-color: #111;
+        }
+
         .phishing-probability {
             font-size: 1.25rem;
             font-weight: bold;
@@ -18,20 +22,26 @@
             margin-top: 10px;
         }
 
+        .card {
+
+        }
+
         .card-header {
-            background-color: #f8f9fa;
+            background-color: #222;
             border-bottom: 2px solid #e9ecef;
+            color: #fff;
         }
 
         .card-header h3 {
-            color: #343a40;
+            color: #fff;
             margin-bottom: 10px;
         }
 
         .card-body {
+            background-color: #222;
             line-height: 1.6;
             font-size: 1rem;
-            color: #343a40;
+            color: #fff;
         }
 
         .btn-secondary {
@@ -44,10 +54,12 @@
         }
 
         .container {
-            background-color: #ffffff;
-            border-radius: 10px;
+            background-color: #222;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(to right, #00ffff, #ff00bb) 30% round;
+            border-image-repeat: stretch;
         }
 
         .btn-info {
@@ -107,7 +119,7 @@
 
                 <div id="ip-details" style="display:none;">
                     <h4>IP Details:</h4>
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-dark" style="background-color: #222;">
                         <tr><th>IP Address</th><td id="detail-ip"></td></tr>
                         <tr><th>Type</th><td id="detail-type"></td></tr>
                         <tr><th>Continent Name</th><td id="detail-continent"></td></tr>

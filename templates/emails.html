@@ -5,35 +5,37 @@
 {% block content %}
 <style>
     body {
-        background-color: #f4f7fa;
+        background-color: #171717;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     h1 {
-        color: #343a40;
+        color: #fff;
         margin-bottom: 30px;
     }
 
+
     .email-item {
-        border: 1px solid #ddd;
+        position: relative;
         border-radius: 8px;
         margin-bottom: 20px;
         padding: 20px;
-        transition: box-shadow 0.3s ease;
-        background-color: #fff;
+        left: 0;
+        transition: left ease 0.5s;
+        background-color: #222;
         text-decoration: none;
     }
     .email-item:hover {
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        left: 25px;
         text-decoration: none;
     }
 
     .email-item h5 {
-        color: #343a40;
+        color: #fff;
     }
 
     .email-item p {
-        color: #555;
+        color: #ccc;
     }
 
     .email-item:last-child {
@@ -48,7 +50,7 @@
 
     .classification {
         margin-top: 10px;
-        color: #343a40;
+        color: #fff;
         border: 1px solid;
         border-radius: 4px;
     }
@@ -87,7 +89,7 @@
     <div id="email-list" class="list-group">
         {% for email in emails %}
         <a href="/email/{{ email.id }}?username={{ username }}&app_password={{ app_password }}&imap_server={{ imap_server }}" class="list-group-item email-item p-0">
-            <span style="position:absolute; width: 25px; height: 100%; background-color: {% if email.phishing_probability <= 40 %}green{% elif email.phishing_probability <= 60 %}yellow{% else %}red{% endif %};"></span>
+            <span style="position:absolute; width: 25px; height: 100%; background-color: {% if email.phishing_probability <= 40 %}#0f0{% elif email.phishing_probability <= 60 %}#ff0{% else %}#f00{% endif %};"></span>
             <div class="row m-3" style="padding-left: 20px;">
                 <div class="col-md-8">
                     <h5 class="mb-1">{{ email.subject }}</h5>
@@ -96,9 +98,12 @@
                     <!-- <button class="btn btn-info mt-2" onclick="event.preventDefault(); toggleClassification({{ loop.index0 }});">
                         Show Classification
                     </button> -->
-                    <div id="classification-{{ loop.index0 }}" class="classification" style=" border-color: {% if email.phishing_probability <= 40 %}#c3e6cb{% elif email.phishing_probability <= 60 %}#ffeeba{% else %}#f5c6cb{% endif %};">
-                        <span class="position-absolute" style="width: {{email.phishing_probability}}%; background-color: {% if email.phishing_probability <= 40 %}green{% elif email.phishing_probability <= 60 %}yellow{% else %}red{% endif %}; opacity: 25%; z-index: 0;">.</span>
-                        <strong class="m-2">Phishing Probability:</strong> {{ email.phishing_probability }}%
+                    <div id="classification-{{ loop.index0 }}" class="classification" style="position: relative; border-color: {% if email.phishing_probability <= 40 %}#c3e6cb{% elif email.phishing_probability <= 60 %}#ffeeba{% else %}#f5c6cb{% endif %};">
+                        <span class="" style="position: absolute; width: {{email.phishing_probability}}%; background-color: {% if email.phishing_probability <= 40 %}#0f0{% elif email.phishing_probability <= 60 %}#ff0{% else %}#f00{% endif %}; color: {% if email.phishing_probability <= 40 %}#0f0{% elif email.phishing_probability <= 60 %}#ff0{% else %}#f00{% endif %}; opacity: 75%; z-index: 0;">.</span>
+                        <strong class="m-2" style="position: relative; z-index: 2;">Phishing Probability:</strong>
+                        <strong style="position: relative; z-index: 2;">
+                            {{ email.phishing_probability }}%
+                        </strong> 
                     </div>
                 </div>
                 <div class="col-md-4 email-date">
@@ -108,7 +113,7 @@
         </a>
         {% endfor %}
     </div>
-    <button id="load-more" class="btn btn-info mt-3">Load More Emails</button>
+    <button id="load-more" class="btn btn-info mt-3" style="margin: 50px 0;">Load More Emails</button>
 </div>
 <script>
    document.getElementById('load-more').addEventListener('click', function() {
